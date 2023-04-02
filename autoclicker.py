@@ -2,7 +2,7 @@ import pyautogui
 import keyboard
 def func():
     while True:
-        if keyboard.ipress('f7'):
+        if keyboard.is_pressed('f7'):
             while True:
                 pyautogui.tripleClick()
                 if keyboard.is_pressed('f8'):
