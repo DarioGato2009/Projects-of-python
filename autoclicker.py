@@ -1,9 +1,11 @@
-import ctypes
-import pyautogui as input
-
-# obtén el identificador de la ventana actual
-hwnd = ctypes.windll.user32.GetForegroundWindow()
-
-# minimiza la ventana
+import pyautogui
+import keyboard
+def func():
+    while True:
+        if keyboard.ipress('f7'):
+            while True:
+                pyautogui.tripleClick()
+                if keyboard.is_pressed('f8'):
+                    break
 while True:
-    input.click(x = 1000, y =500)
+    func()
