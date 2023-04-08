@@ -23,4 +23,3 @@ def func():
         pyautogui.hold("alt")
         pyautogui.press("f4")
 func()
-        
