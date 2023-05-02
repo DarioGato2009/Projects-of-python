@@ -1,16 +1,22 @@
-#make a bucle in python
-import smtplib
-from email.message import EmailMessage
+def texto_a_binario(texto):
+    # Diccionario para asignar a cada letra su posición en el alfabeto
+    alfabeto = {chr(i): i - 96 for i in range(97, 123)}
 
-# Set up the message
-msg = EmailMessage()
-msg['Subject'] = 'Test Email'
-msg['From'] = 'dariodealmeidaasensio@gmail.com'
-msg['To'] = 'dariodealmeidasensio@gmail.com'
-msg.set_content('This is a test email message.')
+    # Convertir cada letra del texto a su posición en el alfabeto
+    numeros = [alfabeto.get(letra.lower(), "") for letra in texto]
 
-# Connect to the SMTP server and send the message
-with smtplib.SMTP('smtp.gmail.com', 535) as smtp:
-    smtp.starttls()
-    smtp.login('dariodealmeidaasensio@gmail.com', 'Gatito2009')
-    smtp.send_message(msg)
+    # Eliminar las letras que no se encontraron en el alfabeto
+    numeros = [num for num in numeros if num != ""]
+
+    # Convertir cada número a su representación binaria
+    binarios = [bin(num)[2:] for num in numeros]
+
+    # Combinar los dígitos binarios de todos los números en una sola cadena
+    cadena_binaria = "".join(binarios)
+
+    return cadena_binaria
+
+texto = input("Introduce el texto que deseas pasar a binario        ")
+binario = texto_a_binario(texto)
+print(binario)
+
